@@ -1,0 +1,39 @@
+REPORT ZSTU_PRG01.
+
+
+types : begin of st_stu,
+     name(20) type c,
+     slname(20) type c,
+     address(30) type c,
+     phoneno(10) type c,
+     sno(3) type c,
+     subject(10) type c,
+     class(5) type c,
+     marks(10) type c,
+  end of st_stu.
+
+  data:wa_stu type st_stu,
+        it_stu type table of st_stu.
+
+
+  wa_stu-name = 'vikas'.
+  wa_stu-slname ='bageli'.
+  wa_stu-address ='sankh'.
+  wa_stu-phoneno ='2356897410'.
+  wa_stu-sno ='5'.
+  wa_stu-subject = 'english'.
+  wa_stu-class ='10'.
+  wa_stu-marks ='85'.
+  append wa_stu to it_stu.
+  clear wa_stu.
+
+  loop at it_stu into wa_stu.
+    write:/ wa_stu-name,
+           wa_stu-slname,
+           wa_stu-address,
+           wa_stu-phoneno,
+          wa_stu-sno,
+            wa_stu-subject,
+            wa_stu-class,
+            wa_stu-marks.
+    endloop.
